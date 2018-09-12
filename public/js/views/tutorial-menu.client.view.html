@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+    Copyright (C) 2015-2018 Sumandeep Banerjee
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!--
+    Prometheus: Online Tutorial Portal
+    Author: sumandeep.banerjee@gmail.com
+-->
+<div ng-controller="TutorialController">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#!/">Prometheus</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/login">Login</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="!authentication.user">
+                        <a href="/register">Register</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/#!/tutorial">Tutorial</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user && authentication.user.permission === 'admin'">
+                        <a href="/#!/workshop">Workshop</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user && authentication.user.permission === 'admin'">
+                        <a href="/#!/authkey">Authenticate</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/#!/user">User</a>
+                    </li>
+                    <li class="page-scroll" data-ng-show="authentication.user">
+                        <a href="/logout">Hello <span data-ng-bind="authentication.user.username" data-ng-show="authentication.user"></span>,
+                            Logout?</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <section class="success" data-ng-show="authentication.user">
+        <div class="container">
+            <div>
+                <span class="err" data-ng-show="errorMsg">{{errorMsg}}</span>
+            </div>
+            <ul>
+                <h1>
+                    <li data-ng-show="authentication.user.permission === 'admin' || authentication.user.permission === 'editor'"><a href="/#!/tutorial/create">Create Tutorial</a></li>
+                </h1>
+                <h1>
+                    <li><a href="/#!/tutorial/list">List Tutorials</a></li>
+                </h1>
+            </ul>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p class="text-center">Copyright (c) 2018 Sumandeep Banerjee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

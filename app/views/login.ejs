@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+    Copyright (C) 2015-2018 Sumandeep Banerjee
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<!--
+    Prometheus: Online Tutorial Portal
+    Author: sumandeep.banerjee@gmail.com
+-->
+<html xmlns:ng="http://angularjs.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Prometheus Online Tutorial Portal">
+    <meta name="author" content="Sumandeep Banerjee">
+
+    <title>
+        <%= title %>
+    </title>
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+</head>
+
+<body ng-app="prometheus">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="/">Prometheus</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio">
+        <div class="container">
+            <% for(var i in messages) { %>
+            <div class="flash">
+                <%= messages[i] %>
+            </div>
+            <% } %>
+
+            <br>
+            <form class="form-signin" action="/login" method="post">
+                <h2 class="form-signin-heading text-center">Login to access portal</h2>
+
+                <label for="username" class="sr-only">Username</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Username" required
+                    autofocus />
+
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            </form>
+
+            <br>
+            <!--div class="row">
+                <div class="center-block text-center">
+                    <a href="/oauth/google">Login with Google</a>
+                </div>
+            </div-->
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p class="text-center">Copyright (c) 2018 Sumandeep Banerjee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="/libs/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/libs/angular/angular.js"></script>
+    <script type="text/javascript" src="/libs/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/libs/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/libs/ng-file-upload/ng-file-upload.min.js"></script>
+
+    <script type="text/javascript" src="/js/style.js"></script>
+    <script type="text/javascript" src="/js/application.js"></script>
+
+    <script type="text/javascript" src="/js/index.client.module.js"></script>
+    <script type="text/javascript" src="/js/config/index.client.routes.js"></script>
+    <script type="text/javascript" src="/js/controllers/index.client.controller.js"></script>
+
+    <script type="text/javascript" src="/js/user.client.module.js"></script>
+    <script type="text/javascript" src="/js/config/user.client.routes.js"></script>
+    <script type="text/javascript" src="/js/controllers/user.client.controller.js"></script>
+    <script type="text/javascript" src="/js/services/user.client.service.js"></script>
+
+    <script type="text/javascript" src="/js/tutorial.client.module.js"></script>
+    <script type="text/javascript" src="/js/config/tutorial.client.routes.js"></script>
+    <script type="text/javascript" src="/js/controllers/tutorial.client.controller.js"></script>
+    <script type="text/javascript" src="/js/services/tutorial.client.service.js"></script>
+</body>
+
+</html>

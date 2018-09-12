@@ -1,3 +1,8 @@
+# runtime files
+public/libs/
+public/data/
+data/
+
 # Logs
 logs
 *.log
